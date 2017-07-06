@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+//get all Superheroes route
 app.get('/', function(req, res){
   Superhero.find(function(err, superheroes){
     if (err) throw err;
@@ -23,6 +24,18 @@ app.get('/', function(req, res){
   });
 });
 
+//get single Superhero route
+app.get("/:_id", function(req, res){
+  Superhero.findById(req.params._id, function(err, superhero){
+    if (err) throw err;
+    res.json({
+      data: superhero,
+      message: "Hero retrieved!"
+    });
+  });
+});
+
+//post new Superhero to database
 app.post('/', function(req, res) {
   var superhero = new Superhero();
   superhero.name = req.body.name;
@@ -35,6 +48,7 @@ app.post('/', function(req, res) {
   })
 });
 
+//make sure app is actually running
 var server = app.listen(port, function(){
   console.log("Listening on port", port);
 });
