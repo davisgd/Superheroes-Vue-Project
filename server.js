@@ -40,12 +40,17 @@ app.get("/api/:_id", function(req, res){
 
 //post new Superhero to database
 app.post('/api', function(req, res) {
+  console.log("Hitting Post Route");
   var superhero = new Superhero();
   superhero.name = req.body.name;
   superhero.superpower = req.body.superpower;
+  superhero.img = req.body.img;
 
   superhero.save().then(function(superhero) {
-    res.send(superhero);
+    res.json({
+      message: "Hero Successfully Created!",
+      data: superhero
+    });
   }, function(err) {
     res.send("Failed to save :( ")
   })
