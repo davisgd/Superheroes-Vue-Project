@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+//link html, css, and js Files
+app.use(express.static(__dirname + '/public'));
+
 //get all Superheroes route
 app.get('/', function(req, res){
   Superhero.find(function(err, superheroes){
