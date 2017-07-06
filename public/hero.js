@@ -6,7 +6,24 @@ var app = new Vue({
   data: {
 
     title: title,
+    heroes: undefined,
 
+  },
+
+  created: function(){
+    this.fetchData()
+  },
+
+  methods: {
+    fetchData: function(){
+      var self = this;
+      $.ajax({
+        method: "GET",
+        url: "/api"
+      }).done(function(response){
+        self.heroes = response.data;
+        console.log("Received heroes", self.heroes);
+      });
+    }
   }
-
 });

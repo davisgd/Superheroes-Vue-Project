@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname + '/public'));
 
 //get all Superheroes route
-app.get('/', function(req, res){
+app.get('/api', function(req, res){
   Superhero.find(function(err, superheroes){
     if (err) throw err;
     res.json({
@@ -28,7 +28,7 @@ app.get('/', function(req, res){
 });
 
 //get single Superhero route
-app.get("/:_id", function(req, res){
+app.get("/api/:_id", function(req, res){
   Superhero.findById(req.params._id, function(err, superhero){
     if (err) throw err;
     res.json({
@@ -39,7 +39,7 @@ app.get("/:_id", function(req, res){
 });
 
 //post new Superhero to database
-app.post('/', function(req, res) {
+app.post('/api', function(req, res) {
   var superhero = new Superhero();
   superhero.name = req.body.name;
   superhero.superpower = req.body.superpower;
