@@ -14,7 +14,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res){
-  res.send(superhero);
+  Superhero.find(function(err, superheroes){
+    if (err) throw err;
+    res.json({
+      data: superheroes,
+      message: "Heroes successfully retrieved :) "
+    });
+  });
 });
 
 app.post('/', function(req, res) {
