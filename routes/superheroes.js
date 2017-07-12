@@ -40,6 +40,15 @@ Router.route('/:_id').get(function(req, res){
       })
     }
   })
+}).delete(function(req, res){
+    Superhero.remove({ _id: req.params._id  },
+  function(err){
+    if(err){
+      res.send(err, "Uh oh, it broke.");
+    }else {
+      res.send("Superhero was deleted!");
+    }
+  })
 })
 
 module.exports = Router;
