@@ -22,17 +22,6 @@ app.use('/api/heroes', heroRoutes);
 //link html, css, and js Files
 app.use(express.static(__dirname + '/public'));
 
-// get single Superhero route
-app.get("/api/:_id", function(req, res){
-  Superhero.findById(req.params._id, function(err, superhero){
-    if (err) throw err;
-    res.json({
-      data: superhero,
-      message: "Hero retrieved!"
-    });
-  });
-});
-
 // app.delete('api/heroes/:_id', function(req, res){
 //   Superhero.remove({
 //     _id: req.params._id

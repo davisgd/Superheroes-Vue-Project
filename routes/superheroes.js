@@ -31,8 +31,14 @@ Router.route('/').get(function(req, res){
 
 Router.route('/:_id').get(function(req, res){
   Superhero.findById(req.params._id, function(err, superhero){
-    console.log("found superhero!", superhero);
-    res.send("found superhero!");
+    if(err){
+      res.send(err, "He's dead, Jim. X(");
+    }else{
+      res.json({
+        message: "Superhero received.",
+        data: superhero
+      })
+    }
   })
 })
 
