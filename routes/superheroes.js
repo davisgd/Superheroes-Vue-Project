@@ -12,6 +12,21 @@ Router.route('/').get(function(req, res){
       });
     }
   })
+}).post(function(req, res){
+  console.log('Hitting the post route');
+  var superhero = new Superhero();
+  superhero.name = req.body.name;
+  superhero.superpower = req.body.superpower;
+  superhero.img = req.body.img;
+
+  superhero.save().then(function(superhero){
+    res.json({
+      message: 'Hero successfully created!',
+      data: superhero
+    }, function(err){
+      res.send(err);
+    })
+  })
 })
 
 module.exports = Router;

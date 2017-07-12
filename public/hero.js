@@ -23,7 +23,7 @@ var app = new Vue({
       var self = this;
       $.ajax({
         method: "GET",
-        url: "/api"
+        url: "/api/heroes"
       }).done(function(response){
         console.log(response);
         self.heroes = response.data;
@@ -39,7 +39,7 @@ var app = new Vue({
       };
       console.log(newSuperhero);
       $.ajax({
-        url: '/api',
+        url: '/api/heroes',
         method: 'POST',
         data: newSuperhero
       }).done(function(response){
