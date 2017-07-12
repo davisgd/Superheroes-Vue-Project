@@ -15,18 +15,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-//app.use('/api/main', mainRoutes);
-
 app.use('/api/heroes', heroRoutes);
 
 //link html, css, and js Files
 app.use(express.static(__dirname + '/public'));
-
-// app.delete('api/heroes/:_id', function(req, res){
-//   Superhero.remove({
-//     _id: req.params._id
-//   })
-// })
 
 //make sure app is actually running
 var server = app.listen(port, function(){
