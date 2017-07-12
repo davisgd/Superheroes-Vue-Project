@@ -22,35 +22,33 @@ app.use('/api/heroes', heroRoutes);
 //link html, css, and js Files
 app.use(express.static(__dirname + '/public'));
 
-//get single Superhero route
-// app.get("/api/:_id", function(req, res){
-//   Superhero.findById(req.params._id, function(err, superhero){
-//     if (err) throw err;
-//     res.json({
-//       data: superhero,
-//       message: "Hero retrieved!"
-//     });
-//   });
-// });
+app.get("/api/:_id", function(req, res){
+  Superhero.findById(req.params._id, function(err, superhero){
+    if (err) throw err;
+    res.json({
+      data: superhero,
+      message: "Hero retrieved!"
+    });
+  });
+});
 
-//post new Superhero to database
-// app.post('/api', function(req, res) {
-//   console.log("Hitting Post Route");
-//   var superhero = new Superhero();
-//   // superhero.name = req.body.name;
-//   // superhero.superpower = req.body.superpower;
-//   // superhero.img = req.body.img;
-//
-//   //send superhero to Superhero database
-//   superhero.save().then(function(superhero) {
-//     res.json({
-//       message: "Hero Successfully Created!",
-//       data: superhero
-//     });
-//   }, function(err) {
-//     res.send("Failed to save :( ")
-//   })
-// });
+app.post('/api', function(req, res) {
+  console.log("Hitting Post Route");
+  var superhero = new Superhero();
+  // superhero.name = req.body.name;
+  // superhero.superpower = req.body.superpower;
+  // superhero.img = req.body.img;
+
+  //send superhero to Superhero database
+  superhero.save().then(function(superhero) {
+    res.json({
+      message: "Hero Successfully Created!",
+      data: superhero
+    });
+  }, function(err) {
+    res.send("Failed to save :( ")
+  })
+});
 
 //make sure app is actually running
 var server = app.listen(port, function(){
