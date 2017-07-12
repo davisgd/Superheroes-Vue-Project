@@ -45,6 +45,15 @@ var app = new Vue({
       }).done(function(response){
         console.log(response.data, "Hero created!");
       })
+    },
+    deleteHero: function(_id){
+      var self = this;
+      $.ajax({
+        url: '/api/heroes/' + _id,
+        method: 'DELETE',
+      }).done(function(response){
+        console.log(response, "Hero deleted.");
+      })
     }
   }
 });
