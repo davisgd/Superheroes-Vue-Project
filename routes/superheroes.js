@@ -29,4 +29,8 @@ Router.route('/').get(function(req, res){
   })
 })
 
+Router.route('/:_id').get(function(req, res){
+  res.send("got one")
+})
+
 module.exports = Router;
