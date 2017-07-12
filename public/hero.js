@@ -25,6 +25,7 @@ var app = new Vue({
         method: "GET",
         url: "/api"
       }).done(function(response){
+        console.log(response);
         self.heroes = response.data;
         console.log("Received heroes", self.heroes);
       });

@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Superhero = require('./models/Superhero');
-var mainRoutes = require('./routes/main'); //node assumes that files are .js
+//var mainRoutes = require('./routes/main'); //node assumes that files are .js
 var heroRoutes = require('./routes/superheroes');
 var app = express();
 var port = 3000;
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use('/', mainRoutes);
+//app.use('/api/main', mainRoutes);
 
 app.use('/api/heroes', heroRoutes);
 
