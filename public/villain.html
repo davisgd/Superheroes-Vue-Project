@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="villain" id="app">
-      <div class="container jumbotron">
+      <div class="vil-container-mega jumbotron">
         <h1>{{ title }}</h1>
       </div>
       <div class="vil-container">
@@ -31,7 +31,7 @@
             {{v.evilPower }}
           </div>
           <div class="col-md-4">
-            <img :src="v.img"/>
+            <img class="vil-img" :src="v.img"/>
           </div>
           <div class="col-md-12">
             <button class="btn btn-danger" v-on:click="deleteVillain(v._id)">Delete Villain</button>
