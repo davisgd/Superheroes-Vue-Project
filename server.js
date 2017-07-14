@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Superhero = require('./models/Superhero');
 //var mainRoutes = require('./routes/main'); //node assumes that files are .js
 var heroRoutes = require('./routes/superheroes');
+var villainRoutes = require('./routes/villains');
 var app = express();
 var port = 3000;
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/api/heroes', heroRoutes);
+app.use('/api/villains', villainRoutes);
 
 //link html, css, and js Files
 app.use(express.static(__dirname + '/public'));
