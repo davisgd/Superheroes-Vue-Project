@@ -1,0 +1,15 @@
+.vil-container {
+  display: flex;
+  border: solid 5px red;
+
+}
+
+.vil-row{
+  border-radius: 20px;
+  border: solid 5px black;
+  padding: 20px;
+}
+
+.vil-img{
+  max-width: 20%;
+}

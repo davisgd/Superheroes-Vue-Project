@@ -1,4 +1,4 @@
-var title = 'superheroes'
+var title = 'superheroes';
 
 var app = new Vue({
 

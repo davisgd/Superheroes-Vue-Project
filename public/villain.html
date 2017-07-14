@@ -9,8 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./public/styles.css">
-
+    <link rel="stylesheet" href="./css/style.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,32 +18,33 @@
     <![endif]-->
   </head>
   <body>
-    <div class="superhero" id="app">
+    <div class="villain" id="app">
       <div class="container jumbotron">
         <h1>{{ title }}</h1>
       </div>
-      <div class="sup-container">
-        <div class="sup-row" v-for="h in heroes">
+      <div class="vil-container">
+        <div class="vil-row" v-for="v in villains">
           <div class="col-md-4">
-            {{ h.name }}
+            {{ v.name }}
           </div>
           <div class="col-md-4">
-            {{ h.superpower }}
+            {{v.evilPower }}
           </div>
           <div class="col-md-4">
-            <img :src="h.img"/>
+            <img :src="v.img"/>
           </div>
           <div class="col-md-12">
-            <button class="btn btn-danger" v-on:click="deleteHero(h._id)">Delete Hero</button>
+            <button class="btn btn-danger" v-on:click="deleteVillain(v._id)">Delete Villain</button>
           </div>
         </div>
       </div>
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
-    <script src="./hero.js"></script>
+    <script src="./villain.js"></script>
   </body>
 </html>
