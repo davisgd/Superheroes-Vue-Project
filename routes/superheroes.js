@@ -30,7 +30,7 @@ Router.route('/')
           data: superheroes
         })
       }
-    }
+    })
   })
 
 Router.route('/:_id')

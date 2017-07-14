@@ -34,4 +34,28 @@ Router.route('/')
     })
   })
 
+Router.route('/:_id')
+  .get(function(req, res){
+    Villain.findById(req.params._id, function(err, villain){
+      if(err){
+        res.send(err, "It hurts when you break me :(");
+      }else{
+        res.json({
+          message: "Villain received.",
+          data: villain
+        })
+      }
+    })
+  })
+  .delete(function(req, res){
+    Villain.remove({ _id: req.params._id },
+    function(err){
+      if(err){
+        res.send(err, "Villain not removed. World has ended.");
+      }else{
+        res.send("Villain deleted!");
+      }
+    })
+  })
+
 module.exports = Router;
